@@ -35,6 +35,10 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(opus)
 
+string(REPLACE "-Wl,--fatal-warnings" "" CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}")
+string(REPLACE "-Wl,--fatal-warnings" "" CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS}")
+string(REPLACE "-Wl,--fatal-warnings" "" CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS}")
+
 add_library(opus4j SHARED
         src/encoder.c
         src/decoder.c
